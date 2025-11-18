@@ -8,6 +8,18 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-K59RW7S9');</script>
 
+  <!-- GA4 + Debug Mode -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FW0M995MLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FW0M995MLY', {
+      debug_mode: true
+    });
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AirStride — Checkout</title>
@@ -26,6 +38,7 @@
   </style>
 </head>
 <body>
+
   <!-- GTM noscript -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -86,7 +99,6 @@
   <footer>© 2025 AirStride • Demo checkout</footer>
 
 <script>
-  // Helper to read cart from localStorage (same key used across pages)
   function loadCart(){ return JSON.parse(localStorage.getItem('as_cart')||'{}'); }
   function saveCart(c){ localStorage.setItem('as_cart', JSON.stringify(c)); window.dispatchEvent(new Event('storage')); }
 
@@ -118,17 +130,14 @@
     document.getElementById('totalPrice').textContent = formatCurrency(subtotal + shippingFee);
   }
 
-  // shipping selection influences totals
   document.getElementById('shipping').addEventListener('change', ()=> {
     const sub = parseInt(document.getElementById('subtotal').textContent.replace(/\D/g,'')) || 0;
     const fee = document.getElementById('shipping').value === 'express' ? 150 : 0;
     updateTotals(sub, fee);
   });
 
-  // on submit: validate, simulate payment, clear cart, redirect to thank you with order id
   document.getElementById('checkoutForm').addEventListener('submit', (e)=>{
     e.preventDefault();
-    // minimal validation
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const address = document.getElementById('address').value.trim();
@@ -136,30 +145,24 @@
     const cart = loadCart();
     if(Object.keys(cart).length===0) return alert('Cart is empty.');
 
-    // compute totals
     let subtotal = 0;
     for(const k of Object.keys(cart)) subtotal += cart[k].price * cart[k].qty;
     const shippingFee = document.getElementById('shipping').value === 'express' ? 150 : 0;
     const total = subtotal + shippingFee;
 
-    // create mock order id
     const orderId = 'AS' + Date.now().toString().slice(-6);
 
-    // Here you would normally call your server / payment gateway. This is a demo:
-    // Simulate success: clear cart and redirect with order id (we pass via query param)
     localStorage.removeItem('as_cart');
-    // store minimal order info to show on thank you
     localStorage.setItem('as_last_order', JSON.stringify({
       id: orderId, name, email, total, items: cart, created: new Date().toISOString()
     }));
-    // redirect to thank you
+
     window.location.href = 'thankyou.html?order=' + encodeURIComponent(orderId);
   });
 
-  // init
   renderOrder();
-  // when storage updates (cart changed in other tab/page) re-render
   window.addEventListener('storage', renderOrder);
 </script>
+
 </body>
 </html>
