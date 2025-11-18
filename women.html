@@ -1,119 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- GTM -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-K59RW7S9');</script>
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AirStride — Women</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women | BluOrange</title>
   <style>
-    :root{--navy:#0B1A36;--accent:#FF5A7A;--muted:#6b7280;--card:#F8FBFF}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:#fff;color:var(--navy)}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg,var(--navy),#4B2C6B);color:#fff;position:sticky;top:0;z-index:1000}
-    nav a{color:#EAF2FF;text-decoration:none;margin:0 10px}
-    .container{padding:28px 6%}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .product{background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(11,26,54,0.06)}
-    .product img{width:100%;height:180px;object-fit:cover;border-radius:8px}
-    .btn{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
-    footer{padding:28px 6%;text-align:center;color:var(--muted);border-top:1px solid rgba(11,26,54,0.04);margin-top:40px}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .title {
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    .desc {
+      font-size: 15px;
+      color: #666;
+      margin-top: 6px;
+    }
   </style>
 </head>
 <body>
-  <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <header>Women's Collection</header>
 
-  <header>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div style="width:40px;height:40px;border-radius:8px;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800">AS</div>
-      <div><div style="font-weight:800">AirStride</div><div style="font-size:12px;color:rgba(234,242,255,0.9)">Women's</div></div>
+  <div class="container">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg" alt="Women's Sneakers" />
+      <div class="title">Women's Sneakers</div>
+      <div class="desc">Lightweight everyday sneakers designed with premium comfort.</div>
     </div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="men.html">Men</a>
-      <a href="women.html">Women</a>
-      <a href="checkout.html">Checkout</a>
-    </nav>
-
-    <div>
-      <button class="btn" onclick="location.href='checkout.html'">Cart (<span id="cartCount">0</span>)</button>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/5705473/pexels-photo-5705473.jpeg" alt="Women's Sandals" />
+      <div class="title">Summer Sandals</div>
+      <div class="desc">Elegant open-toe sandals perfect for casual and festive wear.</div>
     </div>
-  </header>
 
-  <main class="container">
-    <h2 style="margin-top:0">Women's Collection</h2>
-    <p style="color:var(--muted)">Casuals, gym sneakers, tracks and tees — styled for comfort and performance.</p>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg" alt="Handbags" />
+      <div class="title">Handbags</div>
+      <div class="desc">Premium handbags crafted with minimalist modern styling.</div>
+    </div>
 
-    <div class="grid" id="productGrid"></div>
-  </main>
-
-  <footer>© 2025 AirStride • Women’s shop</footer>
-
-<script>
-  const PRODUCTS = [
-    {id:'w1',name:'AirStride Glide',price:5999,img:'https://images.unsplash.com/photo-1529634806980-cd3e86f67564?auto=format&fit=crop&w=900&q=80',sizes:[5,6,7,8,9]},
-    {id:'w2',name:'Luna Flex',price:6999,img:'https://images.unsplash.com/photo-1600180758890-0e8bfa4b39b3?auto=format&fit=crop&w=900&q=80',sizes:[5,6,7,8,9,10]},
-    {id:'w3',name:'Everyday Slip',price:1999,img:'https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=900&q=80',sizes:[5,6,7,8]},
-    {id:'w4',name:'Gym Track Tee',price:899,img:'https://images.unsplash.com/photo-1520975698515-0824e7a1fdd7?auto=format&fit=crop&w=900&q=80',sizes:['S','M','L']},
-  ];
-
-  function formatCurrency(v){ return '₹' + v.toLocaleString('en-IN'); }
-
-  function render(){
-    const grid = document.getElementById('productGrid');
-    grid.innerHTML = '';
-    for(const p of PRODUCTS){
-      const el = document.createElement('div');
-      el.className = 'product';
-      el.innerHTML = `
-        <img src="${p.img}" alt="${p.name}">
-        <div style="font-weight:700">${p.name}</div>
-        <div style="color:var(--muted);font-size:13px">${p.sizes.join(', ')}</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-          <div class="price">${formatCurrency(p.price)}</div>
-          <div style="display:flex;gap:8px">
-            <select aria-label="size" data-id="${p.id}">
-              ${p.sizes.map(s=>`<option value="${s}">${s}</option>`).join('')}
-            </select>
-            <button class="btn" data-add="${p.id}">Add</button>
-          </div>
-        </div>
-      `;
-      grid.appendChild(el);
-    }
-
-    document.querySelectorAll('[data-add]').forEach(btn=>{
-      btn.onclick = (e)=>{
-        const id = e.target.dataset.add;
-        const select = e.target.parentElement.querySelector('select');
-        const size = select ? select.value : null;
-        addToCart(id,1,size);
-      };
-    });
-  }
-
-  function loadCart(){ return JSON.parse(localStorage.getItem('as_cart')||'{}'); }
-  function saveCart(cart){ localStorage.setItem('as_cart', JSON.stringify(cart)); window.dispatchEvent(new Event('storage')); updateCountUI(); }
-  function addToCart(id,qty=1,size=null){
-    const p = PRODUCTS.find(x=>x.id===id);
-    if(!p) return alert('Product not found');
-    const key = id + (size?('_s'+size):'');
-    const cart = loadCart();
-    if(cart[key]) cart[key].qty += qty; else cart[key] = { id, name:p.name, price:p.price, img:p.img, qty, size: size || p.sizes[0] };
-    saveCart(cart);
-    alert('Added to cart: ' + p.name);
-  }
-
-  function cartQty(){ const c = loadCart(); return Object.values(c).reduce((s,i)=>s+i.qty,0); }
-  function updateCountUI(){ document.getElementById('cartCount').textContent = cartQty(); }
-  render(); updateCountUI();
-  window.addEventListener('storage', updateCountUI);
-</script>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/8454340/pexels-photo-8454340.jpeg" alt="Accessories" />
+      <div class="title">Accessories</div>
+      <div class="desc">Trendy women accessories including belts, caps, and more.</div>
+    </div>
+  </div>
 </body>
 </html>
