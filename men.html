@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K59RW7S9');</script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AirStride — Men</title>
+  <style>
+    /* reuse compact styles similar to index */
+    :root{--navy:#0B1A36;--accent:#0B84FF;--muted:#6b7280;--card:#F8FBFF;--bg:#fff}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--bg);color:var(--navy)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg,var(--navy),#122B5E);color:#fff;position:sticky;top:0;z-index:1000}
+    nav a{color:#EAF2FF;text-decoration:none;margin:0 10px}
+    .container{padding:28px 6%}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .product{background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(11,26,54,0.06);display:flex;flex-direction:column;gap:8px}
+    .product img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+    .price{font-weight:800}
+    .btn{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    footer{padding:28px 6%;text-align:center;color:var(--muted);border-top:1px solid rgba(11,26,54,0.04);margin-top:40px}
+    @media(max-width:700px){header nav a{display:none}}
+  </style>
+</head>
+<body>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:40px;height:40px;border-radius:8px;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800">AS</div>
+      <div><div style="font-weight:800">AirStride</div><div style="font-size:12px;color:rgba(234,242,255,0.9)">Men's</div></div>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="men.html">Men</a>
+      <a href="women.html">Women</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+
+    <div>
+      <button class="btn" onclick="location.href='checkout.html'">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 style="margin-top:0">Men's Collection</h2>
+    <p style="color:var(--muted)">Shoes, flip-flops, tees and hoodies. Add items to cart and go to checkout to complete purchase (demo)</p>
+
+    <div class="grid" id="productGrid"></div>
+  </main>
+
+  <footer>© 2025 AirStride • Men’s shop</footer>
+
+<script>
+  // products (men) - you can add more
+  const PRODUCTS = [
+    {id:'m1',name:'AirStride Runner X',price:6499,img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',sizes:[7,8,9,10,11]},
+    {id:'m2',name:'Stratus Trainer',price:7499,img:'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',sizes:[8,9,10,11,12]},
+    {id:'m3',name:'Coast Flipflop',price:1299,img:'https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=900&q=80',sizes:[7,8,9,10,11]},
+    {id:'m4',name:'AirStride Tee',price:799,img:'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80',sizes:['S','M','L','XL']},
+    {id:'m5',name:'Hooded Trainer',price:2299,img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80',sizes:['S','M','L','XL']}
+  ];
+
+  function formatCurrency(v){ return '₹' + v.toLocaleString('en-IN'); }
+
+  function render(){
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = '';
+    for(const p of PRODUCTS){
+      const el = document.createElement('div');
+      el.className = 'product';
+      el.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <div style="font-weight:700">${p.name}</div>
+        <div style="color:var(--muted);font-size:13px">${p.sizes.join(', ')}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+          <div class="price">${formatCurrency(p.price)}</div>
+          <div style="display:flex;gap:8px">
+            <select aria-label="size" data-id="${p.id}">
+              ${p.sizes.map(s=>`<option value="${s}">${s}</option>`).join('')}
+            </select>
+            <button class="btn" data-add="${p.id}">Add</button>
+          </div>
+        </div>
+      `;
+      grid.appendChild(el);
+    }
+
+    // attach events
+    document.querySelectorAll('[data-add]').forEach(btn=>{
+      btn.onclick = (e)=>{
+        const id = e.target.dataset.add;
+        const select = e.target.parentElement.querySelector('select');
+        const size = select ? select.value : null;
+        addToCart(id,1,size);
+      };
+    });
+  }
+
+  // cart helpers stored as object in localStorage under 'as_cart'
+  function saveCart(cart){ localStorage.setItem('as_cart', JSON.stringify(cart)); window.dispatchEvent(new Event('storage')); updateCountUI(); }
+  function loadCart(){ return JSON.parse(localStorage.getItem('as_cart')||'{}'); }
+  function addToCart(productId,qty=1,size=null){
+    const p = PRODUCTS.find(x=>x.id===productId);
+    if(!p) return alert('Product not found');
+    const key = productId + (size?('_s'+size):'');
+    const cart = loadCart();
+    if(cart[key]) cart[key].qty += qty; else cart[key] = { id:productId, name:p.name, price:p.price, img:p.img, qty, size: size || p.sizes[0] };
+    saveCart(cart);
+    alert('Added to cart: ' + p.name);
+  }
+
+  function cartQty(){
+    try{ const c = loadCart(); return Object.values(c).reduce((s,i)=>s+i.qty,0);}catch(e){return 0}
+  }
+  function updateCountUI(){ document.getElementById('cartCount').textContent = cartQty(); }
+
+  render(); updateCountUI();
+  window.addEventListener('storage', updateCountUI);
+</script>
+</body>
+</html>
