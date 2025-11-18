@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women's Collection | BluOrange</title>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,15 +12,14 @@
   'https://www.googletagmanager.com/gtm.js?id=GTM-TEST123'+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-TEST123');</script>
   <!-- End Google Tag Manager -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Women's Collection | BluOrange</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #fafafa;
     }
+
     header {
       background: #111;
       color: #fff;
@@ -24,7 +27,19 @@
       text-align: center;
       font-size: 30px;
       font-weight: bold;
+      position: relative;
     }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      position: absolute;
+      top: 32px;
+      font-size: 18px;
+    }
+
+    header .left { left: 20px; }
+    header .right { right: 20px; }
 
     .section-title {
       font-size: 26px;
@@ -73,9 +88,7 @@
       margin-top: 6px;
     }
 
-    .options {
-      margin-top: 12px;
-    }
+    .options { margin-top: 12px; }
 
     .options select {
       padding: 8px;
@@ -97,23 +110,24 @@
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background: #e04e10;
-    }
+    .btn:hover { background: #e04e10; }
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST123" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <header>
-    <a href="index.html" style="color:#fff; text-decoration:none; float:left; font-size:18px;">Home</a>
-    <span style="font-size:30px;">Women's Fashion Collection</span>
-    <a href="men.html" style="color:#fff; text-decoration:none; float:right; font-size:18px;">Men</a>
-</header>
 
+  <header>
+    <a href="index.html" class="left">Home</a>
+    Women's Fashion Collection
+    <a href="men.html" class="right">Men</a>
+  </header>
+
+  <!-- WOMEN SHOES -->
   <div class="section-title">Women's Shoes</div>
   <div class="container">
+
     <div class="card">
       <img src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg" />
       <div class="title">Premium Sneakers</div>
@@ -126,7 +140,7 @@
     </div>
 
     <div class="card">
-      <img src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg" />
+      <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" />
       <div class="title">Running Shoes</div>
       <div class="desc">Lightweight shoes for fitness and long runs.</div>
       <div class="options">
@@ -135,12 +149,15 @@
       </div>
       <button class="btn">Add to Cart</button>
     </div>
+
   </div>
 
+  <!-- WOMEN CLOTHES -->
   <div class="section-title">Women's Clothing</div>
   <div class="container">
+
     <div class="card">
-      <img src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg" />
+      <img src="https://images.pexels.com/photos/7679652/pexels-photo-7679652.jpeg" />
       <div class="title">Oversized Hoodie</div>
       <div class="desc">Soft-touch hoodie perfect for winter comfort.</div>
       <div class="options">
@@ -151,7 +168,7 @@
     </div>
 
     <div class="card">
-      <img src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg" />
+      <img src="https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg" />
       <div class="title">Graphic Tees</div>
       <div class="desc">Soft cotton t-shirts for everyday wear.</div>
       <div class="options">
@@ -160,12 +177,15 @@
       </div>
       <button class="btn">Add to Cart</button>
     </div>
+
   </div>
 
+  <!-- WOMEN ACCESSORIES -->
   <div class="section-title">Women's Accessories</div>
   <div class="container">
+
     <div class="card">
-      <img src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg" />
+      <img src="https://images.pexels.com/photos/8454340/pexels-photo-8454340.jpeg" />
       <div class="title">Premium Sunglasses</div>
       <div class="desc">UV-protective stylish eyewear.</div>
       <div class="options">
@@ -174,6 +194,7 @@
       </div>
       <button class="btn">Add to Cart</button>
     </div>
+
   </div>
 
 </body>
