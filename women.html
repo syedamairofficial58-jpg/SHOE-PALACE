@@ -1,115 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id=GTM-TEST123'+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TEST123');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Women | BluOrange</title>
+  <title>Women's Collection | BluOrange</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f6f6f6;
+      background: #fafafa;
     }
     header {
       background: #111;
       color: #fff;
-      padding: 20px;
+      padding: 25px;
       text-align: center;
-      font-size: 28px;
+      font-size: 30px;
       font-weight: bold;
     }
+
+    .section-title {
+      font-size: 26px;
+      margin: 30px 20px 10px;
+      font-weight: bold;
+      color: #222;
+    }
+
     .container {
       padding: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
     }
+
     .card {
       background: #fff;
       border-radius: 12px;
       padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s;
     }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
     .card img {
       width: 100%;
       height: 300px;
       object-fit: cover;
       border-radius: 10px;
     }
+
     .title {
       margin-top: 10px;
       font-size: 20px;
       font-weight: bold;
       color: #333;
     }
+
     .desc {
       font-size: 15px;
       color: #666;
       margin-top: 6px;
     }
+
+    .options {
+      margin-top: 12px;
+    }
+
+    .options select {
+      padding: 8px;
+      width: 48%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background: #ff5f17;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e04e10;
+    }
   </style>
 </head>
 <body>
-  <header>Women's Collection</header>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST123" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>Women's Fashion Collection</header>
 
+  <div class="section-title">Women's Shoes</div>
   <div class="container">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1528701800489-20be9c62c86f" alt="Women's Sneakers" />
-      <div class="title">Premium Women's Sneakers</div>
-      <div class="desc">Breathable, stylish, and perfect for everyday lifestyle fashion.</div>
+      <img src="https://images.unsplash.com/photo-1528701800489-20be9c62c86f" />
+      <div class="title">Premium Sneakers</div>
+      <div class="desc">Comfortable and stylish everyday sneakers.</div>
+      <div class="options">
+        <select><option>Color</option><option>White</option><option>Pink</option><option>Black</option></select>
+        <select><option>Size</option><option>36</option><option>37</option><option>38</option><option>39</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1596464716121-09b1a42a0a1e" alt="Women's Sandals" />
-      <div class="title">Elegant Summer Sandals</div>
-      <div class="desc">Soft-sole comfort sandals designed for daily and festive outfits.</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1520975922203-6c2ad6c62c28" alt="Women's Hoodies" />
-      <div class="title">Women's Hoodies</div>
-      <div class="desc">Oversized hoodies with a minimalist aesthetic for modern wear.</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1601924572370-3c36a6bba7e0" alt="Women's T-Shirts" />
-      <div class="title">Cotton Graphic Tees</div>
-      <div class="desc">Soft cotton premium tees designed for casual streetwear.</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1511108690759-009324a90362" alt="Women's Sunglasses" />
-      <div class="title">UV Protection Sunglasses</div>
-      <div class="desc">Trendy eyewear engineered for comfort and sun safety.</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1528701800489-20be9c62c86f" alt="Women's Running Shoes" />
-      <div class="title">Lightweight Running Shoes</div>
-      <div class="desc">High-performance shoes crafted for fitness and long runs.</div>
+      <img src="https://images.unsplash.com/photo-1592840066562-1237bfd1b55c" />
+      <div class="title">Running Shoes</div>
+      <div class="desc">Lightweight shoes for fitness and long runs.</div>
+      <div class="options">
+        <select><option>Color</option><option>Sky Blue</option><option>Grey</option></select>
+        <select><option>Size</option><option>36</option><option>37</option><option>38</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
     </div>
   </div>
-      <div class="desc">Lightweight everyday sneakers designed with premium comfort.</div>
+
+  <div class="section-title">Women's Clothing</div>
+  <div class="container">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1520975922203-6c2ad6c62c28" />
+      <div class="title">Oversized Hoodie</div>
+      <div class="desc">Soft-touch hoodie perfect for winter comfort.</div>
+      <div class="options">
+        <select><option>Color</option><option>Black</option><option>Beige</option></select>
+        <select><option>Size</option><option>S</option><option>M</option><option>L</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
     </div>
 
     <div class="card">
-      <img src="https://images.pexels.com/photos/5705473/pexels-photo-5705473.jpeg" alt="Women's Sandals" />
-      <div class="title">Summer Sandals</div>
-      <div class="desc">Elegant open-toe sandals perfect for casual and festive wear.</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg" alt="Handbags" />
-      <div class="title">Handbags</div>
-      <div class="desc">Premium handbags crafted with minimalist modern styling.</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.pexels.com/photos/8454340/pexels-photo-8454340.jpeg" alt="Accessories" />
-      <div class="title">Accessories</div>
-      <div class="desc">Trendy women accessories including belts, caps, and more.</div>
+      <img src="https://images.unsplash.com/photo-1601924572370-3c36a6bba7e0" />
+      <div class="title">Graphic Tees</div>
+      <div class="desc">Soft cotton t-shirts for everyday wear.</div>
+      <div class="options">
+        <select><option>Color</option><option>White</option><option>Lavender</option></select>
+        <select><option>Size</option><option>S</option><option>M</option><option>L</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
     </div>
   </div>
+
+  <div class="section-title">Women's Accessories</div>
+  <div class="container">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511108690759-009324a90362" />
+      <div class="title">Premium Sunglasses</div>
+      <div class="desc">UV-protective stylish eyewear.</div>
+      <div class="options">
+        <select><option>Color</option><option>Black</option><option>Brown</option></select>
+        <select><option>Size</option><option>One Size</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+  </div>
+
 </body>
 </html>
