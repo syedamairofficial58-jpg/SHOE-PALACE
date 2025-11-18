@@ -1,623 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2V2TGRXN1S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
- 
-  gtag('config', 'G-2V2TGRXN1S', { 'debug_mode':true });
-</script>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K59RW7S9');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) (OPTIONAL if you use GTM for GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V2TGRXN1S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2V2TGRXN1S', { 'debug_mode': true });
+  </script>
+
+  <!-- Google Tag Manager (place on every page) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K59RW7S9');</script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AirStride — Premium Shoes</title>
-
-  <!-- Add GA4 here if needed (paste GA4 tag inside head) -->
-  <!-- GA4: Paste your GA4 script below this comment -->
+  <title>AirStride — Home</title>
 
   <style>
-    :root{
-      --navy:#0B1A36;
-      --navy-2:#122B5E;
-      --accent:#0B1A36;
-      --muted:#6b7280;
-      --bg:#ffffff;
-      --card:#F8FBFF;
-      --glass: rgba(255,255,255,0.6);
-    }
-    [data-theme="dark"]{
-      --bg:#071028;
-      --card:#091226;
-      --glass: rgba(0,0,0,0.4);
-      --muted:#9aa6c0;
-      color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:var(--navy);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      scroll-behavior:smooth;
-    }
+    /* --- (concise theme + responsive) --- */
+    :root{--navy:#0B1A36;--accent:#0B84FF;--muted:#6b7280;--card:#F8FBFF;--bg:#fff}
+    [data-theme="dark"]{--bg:#071028;--card:#091226;--muted:#9aa6c0;color-scheme:dark}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg,var(--navy),#122B5E);color:#fff;position:sticky;top:0;z-index:1000}
+    .brand{display:flex;align-items:center;gap:10px}.logo{width:44px;height:44px;border-radius:8px;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav a{color:#EAF2FF;text-decoration:none;margin:0 10px;font-weight:600}
+    .right-controls{display:flex;align-items:center;gap:10px}
+    .btn{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    .chip{background:var(--card);padding:8px 10px;border-radius:999px;border:1px solid rgba(11,26,54,0.06);cursor:pointer}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:44px 6%;align-items:center}
+    .hero h1{margin:0;color:#fff;font-size:42px}
+    .hero p{color:#DDEAFB;max-width:60%}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));padding:16px;border-radius:12px;box-shadow:0 12px 30px rgba(2,6,23,0.12)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:28px 6%}
+    .product{background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(11,26,54,0.06)}
+    footer{padding:28px 6%;text-align:center;color:var(--muted);border-top:1px solid rgba(11,26,54,0.04);margin-top:40px}
 
-    /* HEADER */
-    header{
-      position:sticky; top:0; z-index:1200;
-      background:linear-gradient(180deg,var(--navy) 0%, rgba(11,26,54,0.9) 55%);
-      color:white;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 20px;
-      gap:12px;
-    }
-    .brand{display:flex; align-items:center; gap:10px;}
-    .logo{
-      width:48px; height:48px; background:white; border-radius:10px;
-      display:flex; align-items:center; justify-content:center; color:var(--navy);
-      font-weight:800; font-size:18px;
-    }
-    nav{display:flex; gap:14px; align-items:center;}
-    nav a{color:rgba(255,255,255,0.95); text-decoration:none; font-weight:600}
-    .right-controls{display:flex; gap:12px; align-items:center}
-    button.icon-btn{
-      background:transparent; border:1px solid rgba(255,255,255,0.12);
-      color:white; padding:8px 10px; border-radius:8px; cursor:pointer;
-    }
+    .celebs{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .celebs img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+    .hero-right img{width:100%;height:350px;object-fit:cover;border-radius:12px}
 
-    /* SEARCH */
-    .search {
-      display:flex; align-items:center; gap:8px;
-      background:var(--glass); padding:6px 10px; border-radius:10px;
-    }
-    .search input{
-      border:0; outline:none; background:transparent; color:white; width:220px;
-    }
-
-    /* HERO */
-    .hero{
-      display:grid; grid-template-columns:1fr 450px; gap:30px;
-      padding:48px 6%;
-      align-items:center;
-    }
-    .hero-left h1{
-      margin:0; font-size:46px; color:white; line-height:1.03;
-      letter-spacing:-0.6px;
-    }
-    .hero-left p{color:#E6EEF9; margin-top:14px; max-width:60%;}
-    .hero-right{
-      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border-radius:16px; padding:18px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.25);
-    }
-    .slider{width:100%; overflow:hidden; border-radius:12px}
-    .slides{display:flex; width:300%; animation: slide 12s infinite;}
-    .slides img{width:100%; height:320px; object-fit:cover; display:block}
-    @keyframes slide{
-      0%{transform:translateX(0)} 33%{transform:translateX(-33.333%)} 66%{transform:translateX(-66.666%)} 100%{transform:translateX(0)}
-    }
-
-    /* MAIN */
-    main{padding:40px 6%;}
-    .section-head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:18px}
-    .section-head h2{margin:0; color:var(--navy); font-size:22px}
-    .filters{display:flex; gap:8px; align-items:center}
-    .btn{background:var(--accent); color:white; padding:8px 12px; border-radius:8px; border:0; cursor:pointer}
-    .chip{background:var(--card); padding:6px 10px; border-radius:999px; border:1px solid rgba(11,26,54,0.07); cursor:pointer; font-weight:600}
-
-    /* PRODUCT GRID */
-    .grid{
-      display:grid; gap:18px;
-      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-    }
-    .product{
-      background:var(--card); padding:14px; border-radius:12px; border:1px solid rgba(11,26,54,0.06);
-      display:flex; flex-direction:column; gap:10px;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .product:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(2,6,23,0.08)}
-    .product .img{height:180px; border-radius:10px; overflow:hidden}
-    .product .img img{width:100%; height:100%; object-fit:cover; display:block}
-    .product h3{margin:0; font-size:16px}
-    .product p{margin:0; color:var(--muted); font-size:13px}
-    .price-row{display:flex; justify-content:space-between; align-items:center; gap:8px}
-    .price{font-weight:800; font-size:16px}
-    .add-btn{background:transparent; border:1px solid var(--accent); color:var(--accent); padding:8px 10px; border-radius:8px; cursor:pointer}
-
-    /* CART SIDEBAR */
-    .cart-toggle{position:relative}
-    .cart-count{
-      position:absolute; top:-6px; right:-6px; background:#ff3b30; color:white; width:20px; height:20px;
-      display:flex; align-items:center; justify-content:center; border-radius:50%; font-size:12px; font-weight:700;
-    }
-    .cart-panel{
-      position:fixed; right:18px; top:74px; width:360px; max-width:92vw; height:calc(100vh - 110px);
-      background:var(--card); border-radius:12px; box-shadow:0 18px 60px rgba(2,6,23,0.18); padding:16px; overflow:auto;
-      transform:translateX(20px); transition: transform .25s ease, opacity .25s ease; opacity:0; pointer-events:none;
-      z-index:1300;
-    }
-    .cart-panel.open{transform:translateX(0); opacity:1; pointer-events:auto}
-    .cart-item{display:flex; gap:12px; align-items:center; margin-bottom:12px}
-    .cart-item img{width:68px; height:68px; object-fit:cover; border-radius:8px}
-    .qty-controls{display:flex; gap:6px; align-items:center}
-    .small{font-size:13px; color:var(--muted)}
-
-    /* FOOTER */
-    footer{padding:28px 6%; text-align:center; color:var(--muted); border-top:1px solid rgba(11,26,54,0.04); margin-top:40px}
-
-    /* MODALS */
-    .modal-backdrop{
-      position:fixed; inset:0; background:rgba(2,6,23,0.45); display:flex; align-items:center; justify-content:center;
-      z-index:1400; opacity:0; pointer-events:none; transition:opacity .18s ease;
-    }
-    .modal-backdrop.open{opacity:1; pointer-events:auto}
-    .modal{background:var(--bg); width:720px; max-width:96vw; border-radius:12px; padding:18px; box-shadow:0 20px 60px rgba(2,6,23,0.25)}
-    .modal h3{margin-top:0}
-    .field{display:flex; flex-direction:column; gap:6px; margin-bottom:10px}
-    .field input, .field select, .field textarea{
-      padding:10px; border-radius:8px; border:1px solid rgba(11,26,54,0.08);
-      background:transparent; outline:none; color:inherit;
-    }
-
-    /* responsive tweaks */
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr; padding-top:28px; padding-bottom:28px}
-      .hero-left p{max-width:100%}
-      nav a{display:none}
-    }
+    @media(max-width:900px){.hero{grid-template-columns:1fr;padding:28px 6%}.hero p{max-width:100%}nav a{display:none}}
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- GTM noscript (on every page, right after <body>) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- HEADER -->
   <header>
-    <div class="brand">
+    <div style="display:flex;align-items:center;gap:12px">
       <div class="logo">AS</div>
-      <div style="line-height:1">
+      <div>
         <div style="font-weight:800">AirStride</div>
-        <div style="font-size:12px; color:rgba(255,255,255,0.85)">Premium Footwear</div>
+        <div style="font-size:12px;color:rgba(234,242,255,0.9)">Premium Footwear</div>
       </div>
     </div>
 
     <nav>
-      <a href="#home">Home</a>
-      <a href="#men" data-route="men">Men</a>
-      <a href="#women" data-route="women">Women</a>
-      <a href="#kids" data-route="kids">Kids</a>
+      <a href="index.html">Home</a>
+      <a href="men.html">Men</a>
+      <a href="women.html">Women</a>
+      <a href="checkout.html">Checkout</a>
       <a href="#about">About</a>
     </nav>
 
     <div class="right-controls">
-      <div class="search" title="Search products">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
-        <input id="searchInput" placeholder="Search shoes, size, type..." />
-      </div>
-
-      <button id="themeToggle" class="icon-btn" title="Toggle theme">🌗</button>
-
-      <div class="cart-toggle">
-        <button id="openCart" class="icon-btn" title="Open cart">🛒</button>
-        <div id="cartCount" class="cart-count" style="display:none">0</div>
-      </div>
-
-      <button id="authBtn" class="icon-btn">Login</button>
+      <button class="chip" onclick="location.href='men.html'">Shop Men</button>
+      <button class="chip" onclick="location.href='women.html'">Shop Women</button>
+      <button class="btn" id="openCartBtn">Cart (<span id="cartCountHome">0</span>)</button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-left">
-      <h1>Step Into Excellence</h1>
-      <p>AirStride combines athletic performance and everyday comfort — advanced cushioning, breathable knit, and long-lasting grip for every step.</p>
-      <div style="margin-top:16px; display:flex; gap:8px;">
-        <button class="btn" onclick="navigate('men')">Shop Men</button>
-        <button class="chip" onclick="navigate('women')">Shop Women</button>
+  <section class="hero">
+    <div>
+      <h1>AirStride — Step into excellence</h1>
+      <p>From everyday comfort to high-performance runners. Loved by athletes and fashion icons — see the collection and celebrity moments below.</p>
+
+      <div style="margin-top:18px">
+        <button class="btn" onclick="location.href='men.html'">Men's collection</button>
+        <button class="chip" onclick="location.href='women.html'">Women's collection</button>
+      </div>
+
+      <div style="margin-top:28px">
+        <h3 style="margin:0 0 8px 0">As seen on</h3>
+        <div class="celebs">
+          <div style="flex:1 1 240px">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=80" alt="celebrity 1">
+            <div style="font-weight:700;margin-top:6px">A. Celebrity</div>
+            <div style="font-size:13px;color:var(--muted)">Promotes AirStride Runner X</div>
+          </div>
+          <div style="flex:1 1 240px">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80" alt="celebrity 2">
+            <div style="font-weight:700;margin-top:6px">B. Icon</div>
+            <div style="font-size:13px;color:var(--muted)">Seen wearing AirStride Glide</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="slider" aria-hidden="true">
-        <div class="slides">
-          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1400&q=80" alt="sneaker 1">
-          <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1400&q=80" alt="sneaker 2">
-          <img src="https://images.unsplash.com/photo-1606811971618-4bc6fe9f550a?auto=format&fit=crop&w=1400&q=80" alt="sneaker 3">
-        </div>
+    <div class="hero-right card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1400&q=80" alt="hero sneaker">
+      <div style="margin-top:12px">
+        <h3 style="margin:0">Limited launch</h3>
+        <p style="margin:6px 0;color:var(--muted)">New colorways & exclusive tee with first 500 orders. Free shipping in India for ₹2000+.</p>
+        <div style="display:flex;gap:8px"><button class="btn" onclick="location.href='men.html'">Shop Men</button><button class="chip" onclick="location.href='women.html'">Shop Women</button></div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <main id="mainContent">
-    <!-- sections will be injected by JS (home / men / women / kids / about) -->
-  </main>
-
-  <!-- CART PANEL -->
-  <aside id="cartPanel" class="cart-panel" aria-hidden="true">
-    <h3>Shopping Cart</h3>
-    <div id="cartItems"></div>
-    <div style="border-top:1px dashed rgba(11,26,54,0.06); padding-top:12px; margin-top:12px">
-      <div style="display:flex; justify-content:space-between; align-items:center">
-        <div><div class="small">Subtotal</div><div id="cartSubtotal" style="font-weight:800; margin-top:6px">₹0</div></div>
-        <div style="display:flex; gap:8px">
-          <button class="btn" id="checkoutBtn">Checkout</button>
-        </div>
+  <section style="padding:28px 6%">
+    <h2 style="margin-top:0">Why AirStride</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
+      <div class="product">
+        <div style="font-weight:700">Advanced cushioning</div>
+        <div style="color:var(--muted);font-size:13px">Responsive foam engineered for long distance comfort.</div>
+      </div>
+      <div class="product">
+        <div style="font-weight:700">Breathable knit</div>
+        <div style="color:var(--muted);font-size:13px">Lightweight, engineered upper for airflow and fit.</div>
+      </div>
+      <div class="product">
+        <div style="font-weight:700">Sustainable materials</div>
+        <div style="color:var(--muted);font-size:13px">Recycled components in midsoles and packaging.</div>
       </div>
     </div>
-  </aside>
-
-  <!-- MODALS: Auth, Product Detail -->
-  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
-    <div id="modalContent" class="modal" role="dialog" aria-modal="true"></div>
-  </div>
+  </section>
 
   <footer>
-    © 2025 AirStride Shoes — Built with ❤️ • Responsive • Demo checkout only
+    © 2025 AirStride • Demo site • Built for mobile & desktop
   </footer>
 
 <script>
-/* ===== Data ===== */
-const PRODUCTS = [
-  /* Men */
-  { id:'m1', category:'men', name:'AirStride Runner X', price:6499, desc:'High-energy running shoe with responsive foam.', sizes:[6,7,8,9,10,11], img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80' },
-  { id:'m2', category:'men', name:'Stratus Trainer', price:7499, desc:'Stability trainer for gym & cross-training.', sizes:[7,8,9,10,11,12], img:'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80' },
-
-  /* Women */
-  { id:'w1', category:'women', name:'AirStride Glide', price:5999, desc:'Lightweight daily trainer with breathable upper.', sizes:[4,5,6,7,8,9], img:'https://images.unsplash.com/photo-1529634806980-cd3e86f67564?auto=format&fit=crop&w=900&q=80' },
-  { id:'w2', category:'women', name:'Luna Flex', price:6999, desc:'Flex sole for natural movement & comfort.', sizes:[5,6,7,8,9,10], img:'https://images.unsplash.com/photo-1600180758890-0e8bfa4b39b3?auto=format&fit=crop&w=900&q=80' },
-
-  /* Kids */
-  { id:'k1', category:'kids', name:'Mini Dash', price:2499, desc:'Cushioned grip for school and play.', sizes:[1,2,3,4,5], img:'https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=900&q=80' },
-  { id:'k2', category:'kids', name:'PlayGrip 2', price:2799, desc:'Durable outsole and comfy midsole.', sizes:[1,2,3,4,5,6], img:'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80' },
-];
-
-/* ===== Utilities ===== */
-const qs = s => document.querySelector(s);
-const qsa = s => Array.from(document.querySelectorAll(s));
-const formatCurrency = v => '₹' + v.toLocaleString('en-IN');
-
-/* ===== App State (persisted) ===== */
-const store = {
-  cart: JSON.parse(localStorage.getItem('as_cart')||'{}'),
-  user: JSON.parse(localStorage.getItem('as_user')||'null'),
-  theme: localStorage.getItem('as_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark':'light'),
-};
-function saveState(){ localStorage.setItem('as_cart', JSON.stringify(store.cart)); localStorage.setItem('as_user', JSON.stringify(store.user)); localStorage.setItem('as_theme', store.theme); }
-
-/* ===== Theme init ===== */
-function applyTheme(){
-  if(store.theme === 'dark') document.documentElement.setAttribute('data-theme','dark'); else document.documentElement.removeAttribute('data-theme');
-  qs('#themeToggle').textContent = store.theme === 'dark' ? '☀️' : '🌙';
-}
-applyTheme();
-
-/* ===== Render main sections ===== */
-const main = qs('#mainContent');
-
-function renderHome(){
-  main.innerHTML = `
-    <section>
-      <div class="section-head"><h2>Featured Collection</h2><div class="filters"><button class="chip" onclick="navigate('men')">Men</button><button class="chip" onclick="navigate('women')">Women</button><button class="chip" onclick="navigate('kids')">Kids</button></div></div>
-      <div class="grid" id="featuredGrid"></div>
-    </section>
-
-    <section>
-      <div class="section-head"><h2>About AirStride</h2></div>
-      <p style="max-width:780px; color:var(--muted)">AirStride footwear blends modern aesthetics with sports-grade engineering. Built for running, training and everyday life — our shoes are optimized for comfort, durability and style. Explore our categories or search directly for sizes and types.</p>
-    </section>
-  `;
-  renderProductsGrid(PRODUCTS.slice(0,4), '#featuredGrid');
-}
-
-function renderProductsPage(category){
-  const title = category==='men'?'Men\'s Shoes':category==='women'?'Women\'s Shoes':'Kids Shoes';
-  const products = PRODUCTS.filter(p=>p.category===category);
-  main.innerHTML = `
-    <section>
-      <div class="section-head"><h2>${title}</h2><div class="filters"><div class="small" style="color:var(--muted)">${products.length} results</div></div></div>
-      <div style="display:flex; gap:18px; flex-wrap:wrap;">
-        <div style="flex:1 1 320px"><div class="grid" id="productGrid"></div></div>
-        <aside style="width:300px;flex-shrink:0">
-          <div style="background:var(--card); padding:14px; border-radius:12px; border:1px solid rgba(11,26,54,0.04)">
-            <h4>Filter by Size</h4>
-            <div id="sizeFilters" style="display:flex; gap:8px; flex-wrap:wrap"></div>
-          </div>
-        </aside>
-      </div>
-    </section>
-  `;
-  renderProductsGrid(products, '#productGrid');
-  renderSizeFilters(products);
-}
-
-function renderProductsGrid(list, selector){
-  const container = qs(selector);
-  container.innerHTML = '';
-  list.forEach(p=>{
-    const div = document.createElement('div');
-    div.className='product';
-    div.innerHTML = `
-      <div class="img"><img src="${p.img}" alt="${p.name}"></div>
-      <h3>${p.name}</h3>
-      <p class="small">${p.desc}</p>
-      <div class="price-row">
-        <div>
-          <div class="price">${formatCurrency(p.price)}</div>
-          <div class="small">Sizes: ${p.sizes.join(', ')}</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-          <button class="add-btn" data-id="${p.id}">Add</button>
-          <button class="btn" data-detail="${p.id}">Details</button>
-        </div>
-      </div>
-    `;
-    container.appendChild(div);
-  });
-
-  // attach events
-  qsa('.add-btn').forEach(b=>b.onclick = e => addToCart(e.target.dataset.id));
-  qsa('button[data-detail]').forEach(b=>b.onclick = e => openProductDetail(e.target.dataset.detail));
-}
-
-/* Size filters */
-function renderSizeFilters(products){
-  const sizes = Array.from(new Set(products.flatMap(p=>p.sizes))).sort((a,b)=>a-b);
-  const container = qs('#sizeFilters');
-  container.innerHTML = sizes.map(s=>`<button class="chip" onclick="filterBySize(${s})">${s}</button>`).join('');
-}
-function filterBySize(size){
-  const route = currentRoute() || 'home';
-  const list = PRODUCTS.filter(p => p.category === route && p.sizes.includes(size));
-  renderProductsGrid(list, '#productGrid');
-}
-
-/* ===== Cart functionality ===== */
-function cartItemCount(){
-  return Object.values(store.cart).reduce((s,i)=>s+i.qty,0);
-}
-function cartSubtotal(){
-  return Object.values(store.cart).reduce((s,i)=>s + (i.qty * i.price),0);
-}
-function updateCartUI(){
-  const count = cartItemCount();
-  const cartCountEl = qs('#cartCount');
-  if(count>0){ cartCountEl.style.display='flex'; cartCountEl.textContent = count; } else cartCountEl.style.display='none';
-  qs('#cartSubtotal').textContent = formatCurrency(cartSubtotal());
-  renderCartItems();
-  saveState();
-}
-function addToCart(productId, qty=1, chosenSize=null){
-  const p = PRODUCTS.find(x=>x.id===productId);
-  if(!p) return alert('Product not found');
-  const key = productId + (chosenSize?('_s'+chosenSize):'');
-  if(store.cart[key]) store.cart[key].qty += qty; else store.cart[key] = { id:productId, name:p.name, price:p.price, img:p.img, qty, size: chosenSize||p.sizes[0] };
-  updateCartUI();
-  openCartPanel();
-}
-function renderCartItems(){
-  const container = qs('#cartItems');
-  container.innerHTML = '';
-  if(Object.keys(store.cart).length===0){ container.innerHTML = '<div class="small" style="padding:18px">Your cart is empty.</div>'; return; }
-  for(const key of Object.keys(store.cart)){
-    const it = store.cart[key];
-    const node = document.createElement('div');
-    node.className='cart-item';
-    node.innerHTML = `
-      <img src="${it.img}" alt="${it.name}">
-      <div style="flex:1">
-        <div style="font-weight:700">${it.name}</div>
-        <div class="small">Size: <strong>${it.size}</strong></div>
-        <div class="small" style="margin-top:6px">${formatCurrency(it.price)} x ${it.qty}</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end">
-        <div class="qty-controls">
-          <button class="chip" data-decrease="${key}">-</button>
-          <div style="min-width:28px; text-align:center">${it.qty}</div>
-          <button class="chip" data-increase="${key}">+</button>
-        </div>
-        <button class="small" style="background:transparent;border:0;color:var(--muted)" data-remove="${key}">Remove</button>
-      </div>
-    `;
-    container.appendChild(node);
+  // small cart count helper (reads as_cart)
+  function cartCount() {
+    try{
+      const cart = JSON.parse(localStorage.getItem('as_cart')||'{}');
+      return Object.values(cart).reduce((s,i)=>s+i.qty,0);
+    }catch(e){return 0}
   }
-
-  // events
-  qsa('[data-increase]').forEach(b=>b.onclick = e => { const k=e.target.dataset.increase; store.cart[k].qty++; updateCartUI(); });
-  qsa('[data-decrease]').forEach(b=>b.onclick = e => { const k=e.target.dataset.decrease; store.cart[k].qty--; if(store.cart[k].qty<=0) delete store.cart[k]; updateCartUI(); });
-  qsa('[data-remove]').forEach(b=>b.onclick = e => { const k=e.target.dataset.remove; delete store.cart[k]; updateCartUI(); });
-}
-
-/* Cart panel open/close */
-const cartPanel = qs('#cartPanel');
-function openCartPanel(){ cartPanel.classList.add('open'); cartPanel.setAttribute('aria-hidden','false'); }
-function closeCartPanel(){ cartPanel.classList.remove('open'); cartPanel.setAttribute('aria-hidden','true'); }
-
-/* Checkout (mock) */
-qs('#checkoutBtn').onclick = () => {
-  if(Object.keys(store.cart).length===0) return alert('Cart is empty');
-  if(!store.user){ openAuthModal(); return alert('Please sign in to checkout (demo)'); }
-  // Mock checkout: clear cart
-  alert('Checkout successful (demo). Order placed for ' + store.user.email);
-  store.cart = {}; updateCartUI();
-};
-
-/* ===== Product detail modal ===== */
-function openProductDetail(productId){
-  const p = PRODUCTS.find(x=>x.id===productId);
-  if(!p) return;
-  const html = `
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
-      <div>
-        <img src="${p.img}" style="width:100%; border-radius:10px; height:320px; object-fit:cover" alt="${p.name}" />
-      </div>
-      <div>
-        <h3>${p.name}</h3>
-        <div class="small" style="margin-bottom:8px">${formatCurrency(p.price)}</div>
-        <p style="color:var(--muted)">${p.desc}</p>
-        <div style="margin-top:10px">
-          <label class="small">Select size</label>
-          <div style="display:flex; gap:8px; margin-top:8px">${p.sizes.map(s=>`<button class="chip" data-size="${s}">${s}</button>`).join('')}</div>
-        </div>
-        <div style="margin-top:14px; display:flex; gap:8px">
-          <button class="btn" id="pdAdd">Add to cart</button>
-          <button class="chip" id="pdClose">Close</button>
-        </div>
-      </div>
-    </div>
-  `;
-  showModal(html);
-
-  // size selection
-  let selectedSize = p.sizes[0];
-  qsa('button[data-size]').forEach(b=>{
-    b.onclick = e => { qsa('button[data-size]').forEach(x=>x.style.border='1px solid rgba(11,26,54,0.07)'); e.target.style.border='2px solid var(--accent)'; selectedSize = e.target.dataset.size; };
-  });
-  qs('#pdAdd').onclick = () => { addToCart(productId,1,selectedSize); closeModal(); };
-  qs('#pdClose').onclick = closeModal;
-}
-
-/* ===== Modal helpers ===== */
-function showModal(innerHtml){
-  qs('#modalContent').innerHTML = innerHtml;
-  qs('#modalBackdrop').classList.add('open');
-  qs('#modalBackdrop').setAttribute('aria-hidden','false');
-}
-function closeModal(){ qs('#modalBackdrop').classList.remove('open'); qs('#modalBackdrop').setAttribute('aria-hidden','true'); qs('#modalContent').innerHTML=''; }
-
-/* ===== Auth (login/signup) modal ===== */
-function openAuthModal(){
-  const html = `
-    <h3>${store.user? 'Account' : 'Sign in or Create account'}</h3>
-    <div style="display:flex; gap:12px; margin-bottom:12px">
-      <button class="chip" id="showLogin">Login</button>
-      <button class="chip" id="showSignup">Signup</button>
-    </div>
-    <div id="authArea"></div>
-  `;
-  showModal(html);
-  qs('#showLogin').onclick = renderLogin;
-  qs('#showSignup').onclick = renderSignup;
-  renderLogin();
-}
-
-function renderLogin(){
-  const html = `
-    <div id="loginForm">
-      <div class="field"><label>Email</label><input type="email" id="liEmail" placeholder="you@example.com" /></div>
-      <div class="field"><label>Password</label><input type="password" id="liPass" placeholder="Password" /></div>
-      <div style="display:flex; gap:8px; margin-top:6px">
-        <button class="btn" id="doLogin">Login</button>
-        <button class="chip" id="closeAuth">Close</button>
-      </div>
-    </div>
-  `;
-  qs('#authArea').innerHTML = html;
-  qs('#doLogin').onclick = () => {
-    const email = qs('#liEmail').value.trim(), pass = qs('#liPass').value.trim();
-    if(!email || !pass) return alert('Enter email & password (demo)');
-    // demo login: accept anything
-    store.user = { email, created: new Date().toISOString() };
-    saveState(); updateAuthUI(); closeModal();
-  };
-  qs('#closeAuth').onclick = closeModal;
-}
-
-function renderSignup(){
-  const html = `
-    <div id="signupForm">
-      <div class="field"><label>Full name</label><input id="suName" placeholder="Your name" /></div>
-      <div class="field"><label>Email</label><input id="suEmail" type="email" placeholder="you@example.com" /></div>
-      <div class="field"><label>Password</label><input id="suPass" type="password" placeholder="Choose a password" /></div>
-      <div style="display:flex; gap:8px; margin-top:6px">
-        <button class="btn" id="doSignup">Create account</button>
-        <button class="chip" id="closeAuth2">Close</button>
-      </div>
-    </div>
-  `;
-  qs('#authArea').innerHTML = html;
-  qs('#doSignup').onclick = () => {
-    const name = qs('#suName').value.trim(), email = qs('#suEmail').value.trim(), pass = qs('#suPass').value.trim();
-    if(!name||!email||!pass) return alert('Complete all fields (demo)');
-    store.user = { name, email, created: new Date().toISOString() };
-    saveState(); updateAuthUI(); closeModal();
-  };
-  qs('#closeAuth2').onclick = closeModal;
-}
-
-function updateAuthUI(){
-  qs('#authBtn').textContent = store.user ? (store.user.name ? store.user.name.split(' ')[0] : store.user.email) : 'Login';
-}
-
-/* ===== Routing / Search ===== */
-function currentRoute(){
-  const h = location.hash.replace('#','');
-  if(!h) return 'home';
-  if(['men','women','kids','about'].includes(h)) return h;
-  return 'home';
-}
-function navigate(route){
-  location.hash = route;
-}
-window.addEventListener('hashchange', router);
-
-function router(){
-  const route = currentRoute();
-  if(route==='home'){ renderHome(); }
-  else if(route==='about'){ main.innerHTML = '<section><h2>About AirStride</h2><p style="color:var(--muted)">AirStride is a demo e-commerce site built to showcase a responsive single-file website. All features (cart, auth, dark mode) are client-side for demo purposes.</p></section>'; }
-  else { renderProductsPage(route); }
-  // if search active, clear
-  qs('#searchInput').value = '';
-}
-router();
-
-/* Search */
-qs('#searchInput').addEventListener('input', e=>{
-  const q = e.target.value.trim().toLowerCase();
-  if(!q){ router(); return; }
-  const results = PRODUCTS.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || p.sizes.join(',').includes(q));
-  main.innerHTML = `<section><div class="section-head"><h2>Search results for "${q}"</h2></div><div class="grid" id="searchGrid"></div></section>`;
-  renderProductsGrid(results, '#searchGrid');
-});
-
-/* ===== Header interactions ===== */
-qs('#openCart').onclick = () => { openCartPanel(); };
-document.addEventListener('click', (e)=>{
-  if(!e.target.closest('.cart-panel') && !e.target.closest('#openCart') && !e.target.closest('.cart-toggle')) closeCartPanel();
-});
-qs('#authBtn').onclick = () => { if(store.user) { if(confirm('Sign out?')) { store.user = null; saveState(); updateAuthUI(); } } else openAuthModal(); };
-updateAuthUI();
-
-/* Theme toggle */
-qs('#themeToggle').onclick = () => { store.theme = store.theme === 'dark' ? 'light' : 'dark'; applyTheme(); saveState(); };
-
-/* Cart open close & initial */
-updateCartUI();
-
-/* modal backdrop click to close */
-qs('#modalBackdrop').addEventListener('click', (e)=>{ if(e.target === qs('#modalBackdrop')) closeModal(); });
-
-/* initial route render */
-router();
-
-/* Quick keyboard: 'c' to open cart, '/' to focus search */
-document.addEventListener('keydown', (e)=>{
-  if(e.key==='/' && document.activeElement !== qs('#searchInput')){ e.preventDefault(); qs('#searchInput').focus(); }
-  if(e.key==='c') openCartPanel();
-});
-
+  function updateCountUI(){
+    document.getElementById('cartCountHome').textContent = cartCount();
+  }
+  updateCountUI();
+  // open checkout
+  document.getElementById('openCartBtn').onclick = ()=> location.href='checkout.html';
+  // update when localStorage changes (other tabs/pages)
+  window.addEventListener('storage', updateCountUI);
 </script>
 </body>
 </html>
