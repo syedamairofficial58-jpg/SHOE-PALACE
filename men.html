@@ -5,11 +5,11 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V2TGRXN1S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    /* GA4 Debug Mode ON */
-    gtag('config', 'G-2V2TGRXN1S', { 'debug_mode': true });
+    /* GA4 Debug Mode */
+    gtag('config', 'G-2V2TGRXN1S', { debug_mode: true });
   </script>
 
   <!-- Google Tag Manager -->
@@ -19,13 +19,13 @@
       w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
       var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
+          dl=l!='dataLayer' ? '&l='+l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
     })(window,document,'script','dataLayer','GTM-K59RW7S9');
   </script>
-  <!-- End GTM -->
+  <!-- End Google Tag Manager -->
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -50,8 +50,10 @@
 <body>
 
   <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
   <header>
     <div style="display:flex;align-items:center;gap:12px">
@@ -79,7 +81,7 @@
   <main class="container">
     <h2 style="margin-top:0">Men's Collection</h2>
     <p style="color:var(--muted)">
-      Shoes, flip-flops, tees and hoodies. Add items to cart and go to checkout. (Demo)
+      Shoes, flip-flops, tees and hoodies. Add items to cart and go to checkout.
     </p>
 
     <div class="grid" id="productGrid"></div>
@@ -105,6 +107,7 @@
     for(const p of PRODUCTS){
       const el = document.createElement('div');
       el.className = 'product';
+
       el.innerHTML = `
         <img src="${p.img}" alt="${p.name}">
         <div style="font-weight:700">${p.name}</div>
@@ -122,39 +125,38 @@
           </div>
         </div>
       `;
+
       grid.appendChild(el);
     }
 
     document.querySelectorAll('[data-add]').forEach(btn=>{
       btn.onclick = (e)=>{
         const id = e.target.dataset.add;
-        const sizeSelect = e.target.parentElement.querySelector('select');
-        const size = sizeSelect ? sizeSelect.value : null;
+        const size = e.target.parentElement.querySelector('select')?.value;
         addToCart(id,1,size);
       };
     });
   }
 
   function loadCart(){ return JSON.parse(localStorage.getItem('as_cart')||'{}'); }
-  function saveCart(c){ localStorage.setItem('as_cart', JSON.stringify(c)); window.dispatchEvent(new Event('storage')); updateCountUI(); }
+  function saveCart(cart){ localStorage.setItem('as_cart',JSON.stringify(cart)); updateCountUI(); }
 
   function addToCart(id,qty,size){
-    const product = PRODUCTS.find(p => p.id === id);
-    if(!product) return;
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
 
-    const key = id + (size ? "_s"+size : "");
-
+    const key = id + "_s"+size;
     const cart = loadCart();
+
     if(cart[key]) cart[key].qty += qty;
-    else cart[key] = { id, name:product.name, price:product.price, img:product.img, qty, size };
+    else cart[key] = { id, name:p.name, price:p.price, img:p.img, qty, size };
 
     saveCart(cart);
-    alert("Added to cart: " + product.name);
+    alert("Added to cart: " + p.name);
   }
 
   function cartQty(){
-    const c = loadCart();
-    return Object.values(c).reduce((s,i)=>s+i.qty,0);
+    return Object.values(loadCart()).reduce((s,i)=>s+i.qty,0);
   }
 
   function updateCountUI(){
@@ -163,7 +165,6 @@
 
   render();
   updateCountUI();
-  window.addEventListener('storage', updateCountUI);
 </script>
 
 </body>
