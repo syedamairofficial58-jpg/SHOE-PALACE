@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K59RW7S9');</script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AirStride — Checkout</title>
+  <style>
+    :root{--navy:#0B1A36;--accent:#0B84FF;--muted:#6b7280;--card:#F8FBFF}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:#fff;color:var(--navy)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg,var(--navy),#122B5E);color:#fff;position:sticky;top:0;z-index:1000}
+    .wrap{padding:28px 6%;display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(11,26,54,0.06)}
+    label{display:block;margin:8px 0 6px 0;font-weight:600}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,26,54,0.08)}
+    .btn{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:8px;cursor:pointer}
+    .small{color:var(--muted);font-size:13px}
+    footer{padding:28px 6%;text-align:center;color:var(--muted);border-top:1px solid rgba(11,26,54,0.04);margin-top:40px}
+    @media(max-width:980px){.wrap{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K59RW7S9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:40px;height:40px;border-radius:8px;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800">AS</div>
+      <div><div style="font-weight:800">AirStride</div><div style="font-size:12px;color:rgba(234,242,255,0.9)">Checkout</div></div>
+    </div>
+    <nav>
+      <a href="index.html" style="color:#EAF2FF;text-decoration:none">Home</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="card">
+        <h3 style="margin-top:0">Shipping details</h3>
+        <form id="checkoutForm">
+          <label>Full name</label><input id="name" required placeholder="Your name">
+          <label>Email</label><input id="email" type="email" required placeholder="you@example.com">
+          <label>Phone</label><input id="phone" required placeholder="+91 9XXXXXXXXX">
+          <label>Address</label><textarea id="address" rows="3" required placeholder="Street, city, state, PIN"></textarea>
+          <label>Shipping method</label>
+          <select id="shipping">
+            <option value="standard">Standard (3-6 days) — ₹0</option>
+            <option value="express">Express (1-2 days) — ₹150</option>
+          </select>
+
+          <h3 style="margin-top:18px">Payment (demo)</h3>
+          <label>Cardholder name</label><input id="cardName" required placeholder="Name on card">
+          <label>Card number</label><input id="cardNumber" required placeholder="4242 4242 4242 4242">
+          <div style="display:flex;gap:8px">
+            <div style="flex:1"><label>Expiry</label><input id="exp" required placeholder="MM/YY"></div>
+            <div style="width:140px"><label>CVV</label><input id="cvv" required placeholder="123"></div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit">Pay & place order</button>
+            <div class="small">This is a demo checkout — no real payment processed.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card">
+        <h4 style="margin-top:0">Your order</h4>
+        <div id="orderItems" style="margin-bottom:8px"></div>
+        <div style="border-top:1px dashed rgba(11,26,54,0.06);padding-top:8px">
+          <div style="display:flex;justify-content:space-between"><div class="small">Subtotal</div><div id="subtotal">₹0</div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:6px"><div class="small">Shipping</div><div id="shippingFee">₹0</div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-weight:800"><div>Total</div><div id="totalPrice">₹0</div></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>© 2025 AirStride • Demo checkout</footer>
+
+<script>
+  // Helper to read cart from localStorage (same key used across pages)
+  function loadCart(){ return JSON.parse(localStorage.getItem('as_cart')||'{}'); }
+  function saveCart(c){ localStorage.setItem('as_cart', JSON.stringify(c)); window.dispatchEvent(new Event('storage')); }
+
+  function formatCurrency(v){ return '₹' + v.toLocaleString('en-IN'); }
+
+  function renderOrder(){
+    const cart = loadCart();
+    const container = document.getElementById('orderItems');
+    container.innerHTML = '';
+    if(Object.keys(cart).length===0){ container.innerHTML = '<div class="small">Your cart is empty.</div>'; updateTotals(0,0); return; }
+    let subtotal = 0;
+    for(const key of Object.keys(cart)){
+      const it = cart[key];
+      subtotal += it.price * it.qty;
+      const row = document.createElement('div');
+      row.style.display = 'flex';
+      row.style.gap = '8px';
+      row.style.alignItems = 'center';
+      row.style.marginBottom = '8px';
+      row.innerHTML = `<img src="${it.img}" style="width:60px;height:60px;object-fit:cover;border-radius:8px"><div style="flex:1"><div style="font-weight:700">${it.name}</div><div class="small">Size: ${it.size} • ${it.qty} × ${formatCurrency(it.price)}</div></div>`;
+      container.appendChild(row);
+    }
+    updateTotals(subtotal, 0);
+  }
+
+  function updateTotals(subtotal, shippingFee){
+    document.getElementById('subtotal').textContent = formatCurrency(subtotal);
+    document.getElementById('shippingFee').textContent = formatCurrency(shippingFee);
+    document.getElementById('totalPrice').textContent = formatCurrency(subtotal + shippingFee);
+  }
+
+  // shipping selection influences totals
+  document.getElementById('shipping').addEventListener('change', ()=> {
+    const sub = parseInt(document.getElementById('subtotal').textContent.replace(/\D/g,'')) || 0;
+    const fee = document.getElementById('shipping').value === 'express' ? 150 : 0;
+    updateTotals(sub, fee);
+  });
+
+  // on submit: validate, simulate payment, clear cart, redirect to thank you with order id
+  document.getElementById('checkoutForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    // minimal validation
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const address = document.getElementById('address').value.trim();
+    if(!name || !email || !address) return alert('Please complete name, email, and address.');
+    const cart = loadCart();
+    if(Object.keys(cart).length===0) return alert('Cart is empty.');
+
+    // compute totals
+    let subtotal = 0;
+    for(const k of Object.keys(cart)) subtotal += cart[k].price * cart[k].qty;
+    const shippingFee = document.getElementById('shipping').value === 'express' ? 150 : 0;
+    const total = subtotal + shippingFee;
+
+    // create mock order id
+    const orderId = 'AS' + Date.now().toString().slice(-6);
+
+    // Here you would normally call your server / payment gateway. This is a demo:
+    // Simulate success: clear cart and redirect with order id (we pass via query param)
+    localStorage.removeItem('as_cart');
+    // store minimal order info to show on thank you
+    localStorage.setItem('as_last_order', JSON.stringify({
+      id: orderId, name, email, total, items: cart, created: new Date().toISOString()
+    }));
+    // redirect to thank you
+    window.location.href = 'thankyou.html?order=' + encodeURIComponent(orderId);
+  });
+
+  // init
+  renderOrder();
+  // when storage updates (cart changed in other tab/page) re-render
+  window.addEventListener('storage', renderOrder);
+</script>
+</body>
+</html>
